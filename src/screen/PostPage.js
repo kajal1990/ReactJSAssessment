@@ -104,7 +104,8 @@ const ApiCall = () => {
             </Card.Title>
             {products && products.postRes && products.postRes.posts ? (
               products.postRes.posts
-                .filter((ele) => ele.feature_image == null)
+                .filter((ele) => ele.feature_image != null)
+                .filter((ele) => ele.featured == false)
                 .map((fix) => (
                   <Card.Text>
                     {fix.title}&nbsp;
@@ -126,8 +127,8 @@ const ApiCall = () => {
             </Card.Title>
             {products && products.postRes && products.postRes.posts ? (
               products.postRes.posts
-                .filter((ele) => ele.html != null)
-                .filter((meta) => meta.html.length < 250)
+                .filter((ele) => ele.meta_description != null)
+                .filter((meta) => meta.meta_description.length < 250)
                 .map((fix) => (
                   <Card.Text>
                     {fix.title}&nbsp;
@@ -149,8 +150,8 @@ const ApiCall = () => {
             </Card.Title>
             {products && products.postRes && products.postRes.posts ? (
               products.postRes.posts
-                .filter((ele) => ele.html != null)
-                .filter((meta) => meta.html.length > 1500)
+                .filter((ele) => ele.meta_description != null)
+                .filter((meta) => meta.meta_description.length > 1500)
                 .map((fix) => (
                   <Card.Text>
                     {fix.title}&nbsp;
